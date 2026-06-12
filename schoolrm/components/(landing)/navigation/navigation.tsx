@@ -6,7 +6,7 @@ import { MobileMenu } from "./mobile-menu";
 function NavigationLogo() {
   return (
     <Link
-      href="/"
+      href="#home"
       className="relative h-15 w-30 shrink-0 drop-shadow-md lg:h-[60px] lg:w-[100px]"
     >
       <Image
@@ -33,7 +33,7 @@ function LoginRegisterButton() {
 
 export function LandingNavigation() {
   return (
-    <header className="relative z-30">
+    <header className="sticky top-0 z-30">
       {/* Mobile: single bar */}
       <div
         className={`flex items-center justify-between bg-cream px-6 lg:hidden`}

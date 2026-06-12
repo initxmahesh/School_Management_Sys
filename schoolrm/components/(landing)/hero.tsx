@@ -3,6 +3,23 @@ import Link from "next/link";
 
 const headlineLines = ["BETTER", "FUTURE FOR", "YOUR KIDS"];
 
+export function HeroSection() {
+  return (
+    <section
+      id="home"
+      className="scroll-mt-[72px] grid min-h-[calc(100vh-72px)] lg:min-h-[calc(100vh-88px)] lg:grid-cols-2 lg:scroll-mt-[88px]"
+    >
+      <div className="relative flex flex-col bg-cream">
+        <HeroLeftContent />
+      </div>
+
+      <div className="relative flex min-h-[420px] flex-col bg-linear-to-br from-[#69aed9] via-[#7ab9e4] to-[#7ebbe4] lg:min-h-full">
+        <HeroRightVisual />
+      </div>
+    </section>
+  );
+}
+
 export function HeroLeftContent() {
   return (
     <div className="relative flex flex-1 flex-col justify-center px-6 pb-16 lg:px-12 xl:px-[50px]">
@@ -23,7 +40,7 @@ export function HeroLeftContent() {
 
         <div className="flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-center">
           <Link
-            href="#join"
+            href="#admissions"
             className="cta-gradient inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-4 text-base font-medium uppercase tracking-wide text-navy transition-opacity hover:opacity-90 sm:px-8"
           >
             <Image
@@ -92,19 +109,14 @@ export function HeroRightVisual() {
         className="object-cover object-right opacity-80"
       />
 
-      <div
-        className="absolute bottom-0 left-0 top-0 z-10 hidden w-16 rounded-bl-[50px] rounded-br-[50px] bg-navy/70 lg:block xl:w-[84px]"
-        aria-hidden
-      />
-
       <div className="absolute inset-0 z-50 flex items-end justify-center overflow-hidden">
-        <div className="relative h-[92%] w-full max-w-[620px]">
+        <div className="relative h-full w-full">
           <Image
             src="/images/landing/hero-student.jpg"
             alt="Smiling student with books and backpack"
             fill
             priority
-            className="object-contain object-bottom"
+            className="object-contain object-top opacity-100"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
         </div>

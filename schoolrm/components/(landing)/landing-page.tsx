@@ -1,22 +1,28 @@
-import { HeroLeftContent, HeroRightVisual } from "./hero";
+import { HeroSection } from "./hero";
 import { LandingNavigation } from "./navigation/navigation";
+import { AboutSection } from "./sections/about-section";
+import { AdmissionsSection } from "./sections/admissions-section";
+import { ContactSection } from "./sections/contact-section";
+import { GallerySection } from "./sections/gallery-section";
+import { NewsEventsSection } from "./sections/news-events-section";
+import { ProgramsSection } from "./sections/programs-section";
+import { StaffSection } from "./sections/staff-section";
 
 export function LandingPage() {
   return (
-    <div className="min-h-screen bg-cream">
-      <section className="relative min-h-screen">
-        <LandingNavigation />
+    <div className="bg-cream">
+      <LandingNavigation />
 
-        <div className="grid min-h-[calc(100vh-72px)] lg:min-h-[calc(100vh-88px)] lg:grid-cols-2">
-          <div className="relative flex flex-col bg-cream">
-            {/* <HeroLeftContent /> */}
-          </div>
-
-          <div className="relative flex min-h-[420px] flex-col bg-linear-to-br from-[#6cb1db] via-[#78b9e1] to-[#7fbdE4] lg:min-h-full">
-            {/* <HeroRightVisual /> */}
-          </div>
-        </div>
-      </section>
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <ProgramsSection />
+        <AdmissionsSection />
+        <StaffSection />
+        <NewsEventsSection />
+        <GallerySection />
+        <ContactSection />
+      </main>
     </div>
   );
 }
