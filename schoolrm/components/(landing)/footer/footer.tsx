@@ -102,7 +102,7 @@ export function LandingFooter() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-100">
           <div>
             <Link
-              href="#home"
+              href="/"
               className="relative inline-block h-12 w-36"
             >
               <Image

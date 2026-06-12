@@ -6,7 +6,7 @@ import { MobileMenu } from "./mobile-menu";
 function NavigationLogo() {
   return (
     <Link
-      href="#home"
+      href="/"
       className="relative h-15 w-30 shrink-0 drop-shadow-md lg:h-[60px] lg:w-[100px]"
     >
       <Image
