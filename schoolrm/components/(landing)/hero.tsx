@@ -7,13 +7,13 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="scroll-mt-[72px] grid min-h-[calc(100vh-72px)] lg:min-h-[calc(100vh-88px)] lg:grid-cols-2 lg:scroll-mt-[88px]"
+      className="scroll-mt-[72px] grid lg:grid-cols-2 lg:scroll-mt-[88px]"
     >
-      <div className="relative flex flex-col bg-cream">
+      <div className="relative flex flex-col bg-cream lg:min-h-full">
         <HeroLeftContent />
       </div>
 
-      <div className="relative flex min-h-[420px] flex-col bg-linear-to-br from-[#69aed9] via-[#7ab9e4] to-[#7ebbe4] lg:min-h-full">
+      <div className="relative bg-linear-to-br from-[#69aed9] via-[#7ab9e4] to-[#7ebbe4]">
         <HeroRightVisual />
       </div>
     </section>
@@ -93,34 +93,33 @@ export function HeroLeftContent() {
 
 export function HeroRightVisual() {
   return (
-    <div className="relative flex-1 overflow-hidden">
-      <Image
-        src="/images/landing/hero-bg.svg"
-        alt=""
-        fill
-        aria-hidden
-        className="object-cover object-center opacity-90"
-      />
-      <Image
-        src="/images/landing/bubbles.svg"
-        alt=""
-        fill
-        aria-hidden
-        className="object-cover object-right opacity-80"
-      />
-
-      <div className="absolute inset-0 z-50 flex items-end justify-center overflow-hidden">
-        <div className="relative h-full w-full">
-          <Image
-            src="/images/landing/hero-student.jpg"
-            alt="Smiling student with books and backpack"
-            fill
-            priority
-            className="object-contain object-top opacity-100"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-        </div>
+    <div className="relative">
+      <div className="absolute inset-0 overflow-hidden">
+        <Image
+          src="/images/landing/hero-bg.svg"
+          alt=""
+          fill
+          aria-hidden
+          className="object-cover object-center opacity-90"
+        />
+        <Image
+          src="/images/landing/bubbles.svg"
+          alt=""
+          fill
+          aria-hidden
+          className="object-cover object-right opacity-80"
+        />
       </div>
+
+      <Image
+        src="/images/landing/hero-student.jpg"
+        alt="Smiling student with books and backpack"
+        width={2000}
+        height={1333}
+        priority
+        className="relative z-10 block w-full h-auto object-contain object-top"
+        sizes="(max-width: 1024px) 100vw, 50vw"
+      />
     </div>
   );
 }

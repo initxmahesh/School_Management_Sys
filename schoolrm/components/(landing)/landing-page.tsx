@@ -7,6 +7,7 @@ import { GallerySection } from "./sections/gallery-section";
 import { NewsEventsSection } from "./sections/news-events-section";
 import { ProgramsSection } from "./sections/programs-section";
 import { StaffSection } from "./sections/staff-section";
+import { LandingFooter } from "./footer/footer";
 
 export function LandingPage() {
   return (
@@ -23,6 +24,8 @@ export function LandingPage() {
         <GallerySection />
         <ContactSection />
       </main>
+
+      <LandingFooter />
     </div>
   );
 }
