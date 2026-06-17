@@ -1,143 +1,126 @@
-import Link from "next/link";
-import type { ReactNode } from "react";
 import { ContactForm } from "@/components/contact/contact-form";
 import { schoolContact } from "@/components/contact/contact-data";
-import { SectionShell } from "./section-shell";
-
-function ContactIcon({ children }: { children: ReactNode }) {
-  return (
-    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-hero-blue/10 text-hero-blue">
-      {children}
-    </div>
-  );
-}
-
-function ContactDetail({
-  icon,
-  title,
-  children,
-}: {
-  icon: ReactNode;
-  title: string;
-  children: ReactNode;
-}) {
-  return (
-    <div className="flex gap-3">
-      <ContactIcon>{icon}</ContactIcon>
-      <div>
-        <h3 className="text-xs font-semibold uppercase tracking-wider text-navy">
-          {title}
-        </h3>
-        <div className="mt-0.5 text-sm leading-relaxed text-navy-muted">
-          {children}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export function ContactSection() {
   return (
-    <SectionShell
+    <section
       id="contact"
-      eyebrow="Get in touch"
-      title="Contact"
-      description="Have a question or planning a campus visit? Send us a message — our team responds within one business day."
+      className="scroll-mt-[85px] bg-cream px-4 py-20 md:px-8 lg:py-6"
     >
-      <div className="mt-12 grid gap-10 lg:grid-cols-2 lg:gap-12">
-        <div className="rounded-2xl border border-navy/8 bg-white p-6 shadow-[0_8px_40px_rgba(35,50,85,0.06)] sm:p-8">
-          <h3 className="text-xl font-bold text-navy">Send a message</h3>
-          <p className="mt-2 text-sm text-navy-muted">
-            Share your enquiry and we&apos;ll be in touch shortly.
+      <div className="mx-auto max-w-full">
+        <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
+          <h2 className="mb-6 text-3xl font-bold text-slate-900 md:text-4xl">
+            Contact us
+          </h2>
+          <p className="text-base leading-relaxed text-slate-600">
+            Have a question, need support, or want to discuss your next project?
+            We&apos;re here to help.
           </p>
-          <div className="mt-8">
-            <ContactForm />
-          </div>
         </div>
 
-        <div className="flex flex-col gap-6">
-          <div className="overflow-hidden rounded-2xl border border-navy/10 shadow-[0_8px_40px_rgba(35,50,85,0.08)]">
-            <iframe
-              title="The British School campus location"
-              src={schoolContact.mapEmbedUrl}
-              className="h-[240px] w-full sm:h-[280px]"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+        <div className="mx-auto grid w-full max-w-7xl items-start gap-30 lg:grid-cols-2">
+          <div className="rounded-md border border-slate-300 bg-white p-6 shadow-xs">
+            <ContactForm />
           </div>
 
-          <div className="rounded-2xl border border-navy/8 bg-white p-6 shadow-[0_8px_40px_rgba(35,50,85,0.06)] sm:p-8">
-            <h3 className="text-xl font-bold text-navy">Visit our campus</h3>
-            <div className="mt-6 space-y-5">
-              <ContactDetail
-                title="Address"
-                icon={
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
-                    <path d="M12 21s7-4.5 7-11a7 7 0 10-14 0c0 6.5 7 11 7 11z" />
-                    <circle cx="12" cy="10" r="2.5" />
-                  </svg>
-                }
-              >
-                <p>{schoolContact.address}</p>
-                <Link
-                  href={schoolContact.mapLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-1 inline-block text-hero-blue transition-opacity hover:opacity-80"
+          <div className="space-y-8">
+            <div className="flex items-start gap-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-slate-200">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-5 fill-blue-700"
+                  viewBox="0 0 32 32"
+                  aria-hidden
                 >
-                  Open in Google Maps →
-                </Link>
-              </ContactDetail>
+                  <path d="M26.69 7.8c-1.97-4.13-6.03-6.74-10.6-6.8C11.51.94 7.45 3.46 5.41 7.6c-2.12 4.29-1.62 9.26 1.32 12.99l7.59 9.64a2.024 2.024 0 0 0 3.18 0l7.79-9.9c2.83-3.6 3.36-8.39 1.4-12.52zm-2.96 11.29-7.83 9.9-7.59-9.64c-2.45-3.11-2.87-7.28-1.1-10.86 1.7-3.44 4.95-5.48 8.71-5.48h.15c3.86.06 7.16 2.17 8.82 5.66s1.23 7.38-1.16 10.42" />
+                  <path d="M15.91 7.16c-3.01 0-5.46 2.45-5.46 5.46s2.45 5.46 5.46 5.46 5.46-2.45 5.46-5.46-2.45-5.46-5.46-5.46m0 8.91a3.461 3.461 0 0 1 0-6.92 3.461 3.461 0 0 1 0 6.92" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-slate-900">
+                  Visit office
+                </h3>
+                <p className="mt-1 text-sm text-slate-600">
+                  {schoolContact.address}
+                </p>
+              </div>
+            </div>
 
-              <ContactDetail
-                title="Phone"
-                icon={
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-                  </svg>
-                }
-              >
-                <a
-                  href={`tel:${schoolContact.phone.replace(/\s/g, "")}`}
-                  className="transition-colors hover:text-navy"
+            <div className="flex items-start gap-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-slate-200">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-5 fill-blue-700"
+                  viewBox="0 0 32 32"
+                  aria-hidden
                 >
+                  <path d="M22.56 30a5.2 5.2 0 0 1-2-.41A34.53 34.53 0 0 1 2.4 11.42a5 5 0 0 1 1.06-5.51l3-3a3 3 0 0 1 4.24 0l3.53 3.53a3 3 0 0 1 0 4.24l-1.63 1.65a12.54 12.54 0 0 0 7.07 7.07l1.68-1.67a3 3 0 0 1 4.24 0l3.53 3.53a3 3 0 0 1 0 4.24l-3 3a5 5 0 0 1-3.56 1.5M8.62 4a1 1 0 0 0-.71.29l-3 3a3 3 0 0 0-.64 3.31 32.47 32.47 0 0 0 17.1 17.16 3 3 0 0 0 3.31-.64l3-3a1 1 0 0 0 0-1.42l-3.54-3.53a1 1 0 0 0-1.41 0l-2.12 2.12a1 1 0 0 1-1 .24 14.42 14.42 0 0 1-9.12-9.12 1 1 0 0 1 .24-1l2.12-2.12a1 1 0 0 0 .29-.71 1 1 0 0 0-.29-.7L9.33 4.29A1 1 0 0 0 8.62 4" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-slate-900">
+                  Call us
+                </h3>
+                <p className="mt-1 text-sm text-slate-600">
                   {schoolContact.phone}
-                </a>
-              </ContactDetail>
+                </p>
+              </div>
+            </div>
 
-              <ContactDetail
-                title="Email"
-                icon={
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                    <path d="M22 6l-10 7L2 6" />
-                  </svg>
-                }
-              >
-                <a
-                  href={`mailto:${schoolContact.email}`}
-                  className="transition-colors hover:text-navy"
+            <div className="flex items-start gap-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-slate-200">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-5 fill-blue-700"
+                  viewBox="0 0 24 24"
+                  aria-hidden
                 >
+                  <path
+                    fillRule="evenodd"
+                    d="M.41 4.747A4.35 4.35 0 0 1 4.76.4h14.488a4.35 4.35 0 0 1 4.35 4.352l-.007 10.109a4.35 4.35 0 0 1-4.35 4.346H13.52a.3.3 0 0 0-.188.07l-4.548 3.84c-1.319 1.113-3.338.176-3.338-1.552v-2.068a.29.29 0 0 0-.29-.29h-.403a4.35 4.35 0 0 1-4.35-4.352zM4.76 2.14a2.61 2.61 0 0 0-2.61 2.608l-.008 10.108a2.61 2.61 0 0 0 2.61 2.611h.403c1.12 0 2.03.91 2.03 2.03v2.068a.29.29 0 0 0 .475.22l4.548-3.839a2.03 2.03 0 0 1 1.31-.479h5.723a2.61 2.61 0 0 0 2.61-2.608l.007-10.108a2.61 2.61 0 0 0-2.61-2.61zm2.128 5.29a.87.87 0 0 1 .87-.87h8.485a.87.87 0 0 1 0 1.74H7.757a.87.87 0 0 1-.87-.87zm0 4.744a.87.87 0 0 1 .87-.87h4.781a.87.87 0 0 1 0 1.74H7.758a.87.87 0 0 1-.87-.87"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-slate-900">
+                  Chat to us
+                </h3>
+                <p className="mt-1 text-sm text-slate-600">
                   {schoolContact.email}
-                </a>
-              </ContactDetail>
+                </p>
+              </div>
+            </div>
 
-              <ContactDetail
-                title="Office hours"
-                icon={
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M12 7v5l3 2" />
-                  </svg>
-                }
-              >
-                <p>{schoolContact.hours}</p>
-              </ContactDetail>
+            <div className="flex items-start gap-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-slate-200">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-5 fill-blue-700"
+                  viewBox="0 0 100 100"
+                  aria-hidden
+                >
+                  <path d="M83 23h-3V11c0-3.309-2.692-6-6-6H26c-3.308 0-6 2.691-6 6v12h-3C8.729 23 2 29.729 2 38v30c0 4.963 4.037 9 9 9h9v12c0 3.309 2.692 6 6 6h48c3.308 0 6-2.691 6-6V77h9c4.963 0 9-4.037 9-9V38c0-8.271-6.729-15-15-15zM26 11h48v12H26zm0 78V59h48v30zm66-21c0 1.654-1.345 3-3 3h-9V59h3a3 3 0 1 0 0-6H17a3 3 0 1 0 0 6h3v12h-9c-1.655 0-3-1.346-3-3V38c0-4.963 4.037-9 9-9h66c4.963 0 9 4.037 9 9zm-27 0a3 3 0 0 1-3 3H38a3 3 0 1 1 0-6h24a3 3 0 0 1 3 3zm0 12a3 3 0 0 1-3 3H38a3 3 0 1 1 0-6h24a3 3 0 0 1 3 3zm21-42a3 3 0 0 1-3 3h-6a3 3 0 1 1 0-6h6a3 3 0 0 1 3 3z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-slate-900">Fax</h3>
+                <p className="mt-1 text-sm text-slate-600">+1-548-2588</p>
+              </div>
+            </div>
+
+            <div className="relative z-10 mt-12 h-74 overflow-hidden rounded-md">
+              <iframe
+                title="The British School campus location"
+                src={schoolContact.mapEmbedUrl}
+                className="left-0 top-0 h-full w-full"
+                loading="lazy"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>
       </div>
-    </SectionShell>
+    </section>
   );
 }

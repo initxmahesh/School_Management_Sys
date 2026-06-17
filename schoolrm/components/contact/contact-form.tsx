@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { contactSubjects } from "./contact-data";
 
 const inputClassName =
-  "w-full rounded-xl border border-navy/10 bg-cream/40 px-4 py-3 text-sm text-navy transition-colors placeholder:text-navy-soft/50 focus:border-hero-blue focus:bg-white focus:outline-none focus:ring-2 focus:ring-hero-blue/20";
+  "w-full rounded-md bg-white px-3 py-2.5 text-sm text-slate-900 outline-1 -outline-offset-1 outline-slate-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -16,8 +15,8 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-hero-blue/20 bg-hero-blue/5 px-8 py-12 text-center">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-hero-blue/15 text-hero-blue">
+      <div className="rounded-md border border-blue-200 bg-blue-50 px-8 py-12 text-center">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-blue-100 text-blue-700">
           <svg
             width="28"
             height="28"
@@ -30,10 +29,10 @@ export function ContactForm() {
             <path d="M20 6L9 17l-5-5" />
           </svg>
         </div>
-        <h3 className="mt-5 text-xl font-semibold text-navy">
+        <h3 className="mt-5 text-xl font-semibold text-slate-900">
           Message received
         </h3>
-        <p className="mt-2 text-navy-muted">
+        <p className="mt-2 text-slate-600">
           Thank you for reaching out. A member of our admissions team will
           respond within one business day.
         </p>
@@ -42,40 +41,23 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label htmlFor="first-name" className="mb-2 block text-sm font-medium text-navy">
-            First name
-          </label>
-          <input
-            id="first-name"
-            name="firstName"
-            type="text"
-            required
-            autoComplete="given-name"
-            placeholder="Your first name"
-            className={inputClassName}
-          />
-        </div>
-        <div>
-          <label htmlFor="last-name" className="mb-2 block text-sm font-medium text-navy">
-            Last name
-          </label>
-          <input
-            id="last-name"
-            name="lastName"
-            type="text"
-            required
-            autoComplete="family-name"
-            placeholder="Your last name"
-            className={inputClassName}
-          />
-        </div>
-      </div>
-
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="email" className="mb-2 block text-sm font-medium text-navy">
+        <label htmlFor="name" className="mb-2 inline-block text-sm font-medium text-slate-900">
+          Name
+        </label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          required
+          autoComplete="name"
+          placeholder="John doe"
+          className={inputClassName}
+        />
+      </div>
+      <div>
+        <label htmlFor="email" className="mb-2 inline-block text-sm font-medium text-slate-900">
           Email
         </label>
         <input
@@ -84,64 +66,58 @@ export function ContactForm() {
           type="email"
           required
           autoComplete="email"
-          placeholder="you@example.com"
+          placeholder="john@readymadeui.com"
           className={inputClassName}
         />
       </div>
 
       <div>
-        <label htmlFor="phone" className="mb-2 block text-sm font-medium text-navy">
-          Phone <span className="text-navy-soft">(optional)</span>
+        <label htmlFor="phone" className="mb-2 inline-block text-sm font-medium text-slate-900">
+          Phone number
         </label>
         <input
           id="phone"
           name="phone"
           type="tel"
+          required
           autoComplete="tel"
-          placeholder="+977 ..."
+          placeholder="+11800-259-854"
           className={inputClassName}
         />
       </div>
 
       <div>
-        <label htmlFor="subject" className="mb-2 block text-sm font-medium text-navy">
-          Subject
+        <label htmlFor="company" className="mb-2 inline-block text-sm font-medium text-slate-900">
+          Company
         </label>
-        <select
-          id="subject"
-          name="subject"
+        <input
+          id="company"
+          name="company"
+          type="text"
           required
-          defaultValue=""
+          autoComplete="organization"
+          placeholder="XYZ pvt. ltd."
           className={inputClassName}
-        >
-          <option value="" disabled>
-            Select a topic
-          </option>
-          {contactSubjects.map((subject) => (
-            <option key={subject} value={subject}>
-              {subject}
-            </option>
-          ))}
-        </select>
+        />
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-2 block text-sm font-medium text-navy">
+        <label htmlFor="message" className="mb-2 inline-block text-sm font-medium text-slate-900">
           Message
         </label>
         <textarea
           id="message"
           name="message"
           required
-          rows={5}
-          placeholder="Tell us how we can help..."
+          rows={6}
+          placeholder="Write message"
           className={`${inputClassName} resize-none`}
         />
       </div>
 
       <button
         type="submit"
-        className="cta-gradient cta-button w-full rounded-full px-8 py-4 text-sm font-medium uppercase tracking-wide text-navy sm:w-auto"
+        className="cursor-pointer rounded-md border border-blue-600 bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition-all hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
       >
         Send message
       </button>
