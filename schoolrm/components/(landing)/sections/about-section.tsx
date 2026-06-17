@@ -34,7 +34,7 @@ export function AboutSection() {
       eyebrow="Who we are"
       title="About Us"
       description="For over five decades, The British School has shaped confident learners through world-class education, strong values, and a caring community."
-      className="bg-cream pt-28 lg:pt-32"
+      className="bg-cream"
     >
       <div className="mt-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="relative overflow-hidden rounded-2xl shadow-[0_16px_48px_rgba(35,50,85,0.12)]">
@@ -55,12 +55,6 @@ export function AboutSection() {
         </div>
 
         <div className="space-y-6">
-          <p className="text-base leading-relaxed text-navy-muted lg:text-lg">
-            We blend British educational tradition with a forward-thinking
-            approach — preparing students not just for exams, but for
-            university, careers, and life as global citizens.
-          </p>
-
           <div className="space-y-4">
             {aboutValues.map((value) => (
               <SurfaceCard key={value.title} className="!p-5 sm:!p-6">

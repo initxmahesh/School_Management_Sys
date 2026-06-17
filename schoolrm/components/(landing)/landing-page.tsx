@@ -1,6 +1,7 @@
 import { HeroSection } from "./hero";
 import { LandingNavigation } from "./navigation/navigation";
 import { AboutSection } from "./sections/about-section";
+import { LeadershipSection } from "./sections/leadership-section";
 import { AdmissionsSection } from "./sections/admissions-section";
 import { ContactSection } from "./sections/contact-section";
 import { GallerySection } from "./sections/gallery-section";
@@ -17,6 +18,7 @@ export function LandingPage() {
       <main>
         <HeroSection />
         <AboutSection />
+        <LeadershipSection />
         <ProgramsSection />
         <AdmissionsSection />
         <StaffSection />

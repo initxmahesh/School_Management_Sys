@@ -153,6 +153,45 @@ body {
   outline-offset: 3px;
 }
 
+.nav-shell {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+.nav-panel {
+  transition:
+    background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    backdrop-filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-panel--scrolled {
+  box-shadow: 0 4px 24px rgba(35, 50, 85, 0.08);
+}
+
+.nav-link {
+  position: relative;
+  transition:
+    opacity 0.25s ease,
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-shell,
+  .nav-panel,
+  .nav-link {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
 @keyframes gallery-ken-burns {
   from {
     transform: scale(1);
@@ -206,6 +245,86 @@ body {
 
 .animate-gallery-shimmer {
   animation: gallery-shimmer 3s ease-in-out infinite alternate;
+}
+
+@keyframes hero-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes hero-broadcast-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.hero-broadcast-bar {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.hero-broadcast-pulse {
+  animation: hero-broadcast-pulse 1.4s ease-in-out infinite;
+}
+
+.hero-broadcast-value {
+  color: var(--navy);
+  text-shadow:
+    0 0 10px rgba(253, 253, 245, 0.95),
+    0 1px 2px rgba(253, 253, 245, 0.85);
+}
+
+.hero-broadcast-text {
+  color: var(--navy-muted);
+  text-shadow:
+    0 0 8px rgba(253, 253, 245, 0.9),
+    0 1px 2px rgba(253, 253, 245, 0.75);
+}
+
+.hero-broadcast-divider {
+  color: rgba(35, 50, 85, 0.3);
+}
+
+.hero-marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.hero-marquee-track {
+  animation: hero-marquee 22s linear infinite;
+}
+
+.hero-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-broadcast-pulse {
+    animation: none;
+  }
+
+  .hero-marquee-mask {
+    mask-image: none;
+  }
+
+  .hero-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 1rem;
+  }
 }
 
 .dark {

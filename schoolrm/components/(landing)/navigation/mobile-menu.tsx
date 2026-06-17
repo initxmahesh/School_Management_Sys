@@ -48,8 +48,16 @@ function MenuIcon({ open }: { open: boolean }) {
   );
 }
 
-export function MobileMenu() {
+export function MobileMenu({
+  onOpenChange,
+}: {
+  onOpenChange?: (open: boolean) => void;
+}) {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    onOpenChange?.(open);
+  }, [open, onOpenChange]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";

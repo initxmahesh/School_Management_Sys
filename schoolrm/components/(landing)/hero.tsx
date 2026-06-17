@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const headlineLines = ["BETTER", "FUTURE FOR", "YOUR KIDS"];
 
@@ -8,25 +7,38 @@ const heroStats = [
   { value: "1200+", label: "Students" },
   { value: "98%", label: "College Placement" },
   { value: "15:1", label: "Student-Teacher Ratio" },
+  { value: "Jun 12 - Aug 12", label: "Admissions Open" },
 ];
 
-function HeroStatsBar() {
+function HeroStatsMarquee() {
+  const items = [...heroStats, ...heroStats];
+
   return (
-    <div className="absolute bottom-0 left-0 right-0 z-20 translate-y-1/2 px-6 lg:px-10">
-      <div className="mx-auto flex max-w-5xl flex-col divide-y divide-navy/10 rounded-2xl bg-white px-4 py-4 shadow-[0_8px_32px_rgba(35,50,85,0.12)] sm:flex-row sm:divide-x sm:divide-y-0 sm:px-2 sm:py-6">
-        {heroStats.map((stat) => (
+    <div className="relative z-20 w-full shrink-0">
+      <div className="hero-broadcast-bar flex w-full items-stretch border-y border-navy/15 bg-transparent">
+        <div className="hero-marquee-mask relative min-w-0 flex-1 overflow-hidden py-2.5 sm:py-3">
           <div
-            key={stat.label}
-            className="flex flex-1 flex-col items-center justify-center gap-1 px-4 py-3 text-center sm:py-0"
+            className="hero-marquee-track flex w-max items-center gap-8 pl-4 sm:gap-12 sm:pl-6"
+            aria-label="School highlights"
           >
-            <span className="text-3xl font-semibold text-hero-blue lg:text-4xl">
-              {stat.value}
-            </span>
-            <span className="text-[10px] font-medium uppercase tracking-widest text-navy-soft sm:text-xs">
-              {stat.label}
-            </span>
+            {items.map((stat, index) => (
+              <div
+                key={`${stat.label}-${index}`}
+                className="flex shrink-0 items-center gap-2 sm:gap-10"
+              >
+                <span className="hero-broadcast-value text-sm font-bold uppercase sm:text-base">
+                  {stat.value}
+                </span>
+                <span className="hero-broadcast-text text-xs font-medium uppercase tracking-wider sm:text-sm">
+                  {stat.label}
+                </span>
+                <span className="hero-broadcast-divider px-1 font-light sm:px-2" aria-hidden>
+                  |
+                </span>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );
@@ -36,19 +48,19 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative scroll-mt-[72px] pb-20 lg:scroll-mt-[88px] lg:pb-24"
+      className="relative flex min-h-svh flex-col scroll-mt-[72px] lg:scroll-mt-[85px]"
     >
-      <div className="grid lg:grid-cols-2">
-        <div className="relative flex flex-col bg-cream lg:min-h-full">
+      <div className="grid min-h-0 flex-1 lg:grid-cols-2">
+        <div className="relative flex flex-col bg-cream pt-[72px] lg:min-h-full lg:pt-[85px]">
           <HeroLeftContent />
         </div>
 
-        <div className="relative bg-linear-to-br from-[#69aed9] via-[#7ab9e4] to-[#7ebbe4]">
+        <div className="relative min-h-[280px] bg-linear-to-br from-[#69aed9] via-[#7ab9e4] to-[#7ebbe4] lg:min-h-0">
           <HeroRightVisual />
         </div>
       </div>
 
-      <HeroStatsBar />
+      <HeroStatsMarquee />
     </section>
   );
 }
@@ -70,55 +82,6 @@ export function HeroLeftContent() {
             augue cras massa facilisis dolor volutpat quam risus venenatis.
           </p>
         </div>
-
-        <div className="flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-center">
-          <Link
-            href="#admissions"
-            className="cta-gradient inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-4 text-base font-medium uppercase tracking-wide text-navy transition-opacity hover:opacity-90 sm:px-8"
-          >
-            <Image
-              src="/images/landing/user-icon.svg"
-              alt=""
-              width={31}
-              height={20}
-              aria-hidden
-            />
-            Join Us Today
-          </Link>
-
-          <button
-            type="button"
-            className="inline-flex items-center gap-2.5 text-left text-navy-soft transition-opacity hover:opacity-80"
-          >
-            <Image
-              src="/images/landing/play-icon.svg"
-              alt=""
-              width={52}
-              height={52}
-              aria-hidden
-            />
-            <span className="text-base">Watch our welcome video</span>
-          </button>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-6 sm:gap-8">
-          <div className="relative h-7 w-28">
-            <Image
-              src="/images/landing/ielts-logo.png"
-              alt="British Council IELTS"
-              fill
-              className="object-contain object-left"
-            />
-          </div>
-          <div className="relative h-7 w-28">
-            <Image
-              src="/images/landing/toefl-logo.png"
-              alt="ETS TOEFL"
-              fill
-              className="object-contain object-left"
-            />
-          </div>
-        </div>
       </div>
     </div>
   );
@@ -126,7 +89,7 @@ export function HeroLeftContent() {
 
 export function HeroRightVisual() {
   return (
-    <div className="relative">
+    <div className="relative h-full min-h-[320px] lg:min-h-full">
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src="/images/landing/hero-bg.svg"
@@ -150,7 +113,7 @@ export function HeroRightVisual() {
         width={2000}
         height={1333}
         priority
-        className="relative z-10 block w-full h-auto object-contain object-top"
+        className="relative z-10 block h-full min-h-[320px] w-full object-cover object-top lg:min-h-full"
         sizes="(max-width: 1024px) 100vw, 50vw"
       />
     </div>

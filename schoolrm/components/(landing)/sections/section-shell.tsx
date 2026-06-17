@@ -25,7 +25,7 @@ export function SectionShell({
   return (
     <section
       id={id}
-      className={`scroll-mt-[72px] py-20 lg:scroll-mt-[88px] lg:py-24 ${className}`}
+      className={`scroll-mt-[72px] py-20 lg:scroll-mt-[85px] lg:py-16 ${className}`}
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
         <div className={isCenter ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>

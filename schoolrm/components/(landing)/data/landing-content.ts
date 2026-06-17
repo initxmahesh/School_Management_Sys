@@ -19,50 +19,95 @@ export const aboutValues = [
   },
 ];
 
-export const programs = [
+export const leadershipMessage = {
+  name: "Dr. Sarah Mitchell",
+  title: "Head of School & Principal",
+  initials: "SM",
+  /** Add a portrait to public/images/landing/ and set the path here */
+  image: "",
+  message: [
+    "At The British School, we believe education is not merely about grades — it is about character, curiosity, and the courage to grow.",
+    "Every day, our teachers and staff work alongside families to create a safe, inspiring environment where students discover who they are and who they can become. It is a privilege to lead a community built on trust, excellence, and genuine care.",
+  ],
+};
+
+export type ProgramTheme =
+  | "blue"
+  | "green"
+  | "purple"
+  | "orange"
+  | "teal"
+  | "rose";
+
+export type Program = {
+  step: number;
+  title: string;
+  ages: string;
+  description: string;
+  highlight: string;
+  theme: ProgramTheme;
+};
+
+/** Serpentine journey order: row 1 L→R, row 2 R→L visually (6,5,4) */
+export const programs: Program[] = [
   {
+    step: 1,
     title: "Early Years",
     ages: "Ages 3–5",
     description:
       "Play-based learning that builds curiosity, language skills, and social confidence.",
     highlight: "Foundation stage",
+    theme: "blue",
   },
   {
+    step: 2,
     title: "Primary School",
     ages: "Ages 6–11",
     description:
       "Core subjects, critical thinking, and creativity through project-based learning.",
     highlight: "Key Stages 1–2",
+    theme: "green",
   },
   {
+    step: 3,
     title: "Secondary School",
     ages: "Ages 12–16",
     description:
       "IGCSE preparation with specialist teachers and dedicated pastoral care.",
     highlight: "Key Stages 3–4",
+    theme: "purple",
   },
   {
+    step: 4,
     title: "Sixth Form",
     ages: "Ages 17–18",
     description:
       "A-Level pathways, university counselling, and leadership opportunities.",
     highlight: "A-Levels",
+    theme: "orange",
   },
   {
+    step: 5,
     title: "Extra-Curricular",
     ages: "All ages",
     description:
       "Music, drama, debate, robotics, and competitive sports after school.",
     highlight: "50+ clubs",
+    theme: "teal",
   },
   {
+    step: 6,
     title: "Language Support",
     ages: "All ages",
     description:
       "EAL programmes and IELTS/TOEFL preparation for international students.",
     highlight: "IELTS & TOEFL",
+    theme: "rose",
   },
 ];
+
+/** Grid display order matching the journey infographic */
+export const programJourneyOrder = [1, 2, 3, 6, 5, 4] as const;
 
 export const admissionSteps = [
   {

@@ -1,6 +1,5 @@
-import { programs } from "../data/landing-content";
+import Image from "next/image";
 import { SectionShell } from "./section-shell";
-import { SurfaceCard, Tag } from "./ui";
 
 export function ProgramsSection() {
   return (
@@ -9,24 +8,20 @@ export function ProgramsSection() {
       eyebrow="What we offer"
       title="Academic Programmes"
       description="From early years through sixth form — structured pathways designed for every stage of your child's journey."
-      className="bg-white"
+      className="bg-cream"
       align="center"
     >
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {programs.map((program) => (
-          <SurfaceCard key={program.title} className="flex flex-col">
-            <div className="flex items-start justify-between gap-3">
-              <h3 className="text-lg font-bold text-navy">{program.title}</h3>
-              <Tag>{program.highlight}</Tag>
-            </div>
-            <p className="mt-2 text-xs font-medium uppercase tracking-wider text-hero-blue">
-              {program.ages}
-            </p>
-            <p className="mt-4 flex-1 text-sm leading-relaxed text-navy-muted">
-              {program.description}
-            </p>
-          </SurfaceCard>
-        ))}
+      {/* Infographic image — top header cropped; text lives in SectionShell above */}
+      <div className="mt-12 w-full overflow-hidden rounded-2xl border border-navy/8 bg-white shadow-[0_8px_40px_rgba(35,50,85,0.06)] sm:mt-14">
+        <div className="relative aspect-[16/11] w-full sm:aspect-[16/10] lg:aspect-[2/1]">
+          <Image
+            src="/images/landing/programs-journey.png"
+            alt="Academic programmes journey from early years through sixth form"
+            fill
+            className="object-cover object-[50%_34%]"
+            sizes="(max-width: 1152px) 100vw, 1152px"
+          />
+        </div>
       </div>
     </SectionShell>
   );

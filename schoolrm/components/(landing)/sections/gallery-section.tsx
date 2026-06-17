@@ -56,11 +56,11 @@ export function GallerySection() {
         />
       ) : (
         <>
-          <div className="mt-14">
+          <div className="mt-24">
             <Gallery31 items={previewItems} onItemClick={handleCardClick} />
           </div>
 
-          <blockquote className="mx-auto mt-12 max-w-2xl border-l-4 border-hero-blue pl-6 text-left sm:pl-8">
+          <blockquote className="mx-auto mt-12 max-w-full border-l-4 border-hero-blue pl-6 text-left sm:pl-5">
             <p className="text-lg leading-relaxed text-navy-muted italic sm:text-xl">
               &ldquo;Every photograph captures a moment of growth, friendship,
               and discovery — the heart of life at our school.&rdquo;

@@ -53,7 +53,10 @@ function YearFilterDropdown({
         </span>
         <span>{label}</span>
         <ChevronDown
-          className={cn("size-4 text-navy-soft transition-transform", open && "rotate-180")}
+          className={cn(
+            "size-4 text-navy-soft transition-transform",
+            open && "rotate-180",
+          )}
         />
       </button>
 
@@ -100,8 +103,7 @@ export function GalleryExplorer({
 
   const filtered = useMemo(() => {
     return galleryItems.filter((item) => {
-      const categoryMatch =
-        category === "All" || item.category === category;
+      const categoryMatch = category === "All" || item.category === category;
       const yearMatch = year === "All" || item.year === year;
       return categoryMatch && yearMatch;
     });
